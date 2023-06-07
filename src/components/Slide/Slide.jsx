@@ -1,6 +1,6 @@
 
 
-const SwiperSlide = ({img, subHeading, Heading,  title}) => {
+const Slide = ({photo, subHeading, Heading,  title}) => {
     return (
         <div>
             <div className="grid grid-cols-2">
@@ -10,11 +10,11 @@ const SwiperSlide = ({img, subHeading, Heading,  title}) => {
                     <p>{title}</p>
                 </div>
                 <div>
-                    <img src={img} />
+                    <img src={photo} />
                 </div>
             </div>
         </div>
     );
 };
 
-export default SwiperSlide;
+export default Slide;
