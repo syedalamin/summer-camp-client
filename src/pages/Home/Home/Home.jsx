@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import slider_1 from '../../../assets/SwiperSlide/slider-banner-1.png'
 import slider_2 from '../../../assets/SwiperSlide/slider-banner-2.png'
 import SomeInstructors from "../SomeInstructors/SomeInstructors";
+import PopularClasses from "../PopularClasses/PopularClasses";
 
 
 const Home = () => {
@@ -37,6 +38,7 @@ const Home = () => {
             </div>
         </div>
         <SomeInstructors></SomeInstructors>
+        <PopularClasses></PopularClasses>
         </>
 
     );
