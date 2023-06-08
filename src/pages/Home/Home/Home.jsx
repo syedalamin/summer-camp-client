@@ -7,10 +7,12 @@ import "swiper/css/navigation";
 
 import slider_1 from '../../../assets/SwiperSlide/slider-banner-1.png'
 import slider_2 from '../../../assets/SwiperSlide/slider-banner-2.png'
+import SomeInstructors from "../SomeInstructors/SomeInstructors";
 
 
 const Home = () => {
     return (
+        <>
         <div className="bg-[#edfdfc]">
             <div className="w-10/12 mx-auto ">
                 <Swiper
@@ -24,9 +26,9 @@ const Home = () => {
                     pagination={{
                         dynamicBullets: true,
                     }}
-              
-  
-                    modules={[Autoplay, Pagination, ]}
+
+
+                    modules={[Autoplay, Pagination,]}
                     className="mySwiper "
                 >
                     <SwiperSlide> <Slide photo={slider_2} subHeading=" A Journey to Discover New Horizons" Heading="Exploring the Wonders of Language Learning" title="Welcome to the fascinating world of language learning! Whether you're embarking on this journey for personal enrichment, academic purposes, or to communicate with people from diverse cultures, learning a new language opens up a multitude of opportunities. In this text, we'll delve into the benefits, challenges, and effective strategies for mastering a foreign tongue." ></Slide>  </SwiperSlide>
@@ -34,6 +36,9 @@ const Home = () => {
                 </Swiper>
             </div>
         </div>
+        <SomeInstructors></SomeInstructors>
+        </>
+
     );
 };
 
