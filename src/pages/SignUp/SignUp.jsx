@@ -9,7 +9,9 @@ import { AuthContext } from "../../providers/AuthProvider";
 const SignUp = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+
     const {createUser} = useContext(AuthContext);
+
 
 
     const onSubmit = data => {
@@ -55,17 +57,26 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" {...register("password", { required: true, minLength: 6, pattern: /(?=.*[A-Z].)(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/ })} className="input input-bordered" />
+                                <input type="text" placeholder="password" {...register("password", { required: true, minLength: 6, pattern: /(?=.*[A-Z].)(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/ })} className="input input-bordered" />
                                 {errors.password?.type === 'required' && <span className="text-red-700">Password is required</span>}
                                 {errors.password?.type === 'minLength' && <span className="text-red-700">Password must be 6 characters</span>}
                                 {errors.password?.type === 'pattern' && <span className="text-red-700">Password  must have one uppercase one lower case one number and one special characters  20 characters</span>}
                             </div>
+                            {/* <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Confirm Password</span>
+                                </label>
+                                <input type="text"  placeholder="confirm password" ref {...register("confirm", { required: true, minLength: 6, pattern: /(?=.*[A-Z].)(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/ })} className="input input-bordered" />
+                                {errors.confirm?.type === 'required' && <span className="text-red-700">confirm is required</span>}
+                                {errors.confirm?.type === 'minLength' && <span className="text-red-700">confirm must be 6 characters</span>}
+                                {errors.confirm?.type === 'pattern' && <span className="text-red-700">confirm  must have one uppercase one lower case one number and one special characters  20 characters</span>}
+                            </div> */}
 
                             <div className="form-control mt-6">
                                 <input className="btn text-white bg-teal-600 hover:bg-teal-900" type="submit" value="SignUp" />
                             </div>
                         </form>
-                        <p className="p-5"><button className="btn-link"><Link to='/login'>LogIn</Link></button></p>
+                        <p className="p-5">Already have an account<Link className="btn-link" to='/login'>LogIn</Link></p>
                     </div>
                 </div>
             </div>
