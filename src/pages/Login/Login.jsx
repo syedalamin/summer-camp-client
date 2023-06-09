@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SocialLogin from "../shared/SocialLogin/SocialLogin";
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {signIn} = useContext(AuthContext)
@@ -64,6 +65,7 @@ const Login = () => {
                                 <input className="btn text-white bg-teal-600 hover:bg-teal-900" type="submit" value="Login" />
                             </div>
                         </form>
+                        <SocialLogin></SocialLogin>
                         <p className="p-5"><button className="btn-link"><Link to='/signUp'>SignUp</Link></button></p>
                     </div>
                 </div>

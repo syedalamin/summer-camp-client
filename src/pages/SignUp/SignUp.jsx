@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../shared/SocialLogin/SocialLogin";
 
 
 const SignUp = () => {
@@ -20,8 +21,9 @@ const SignUp = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
                 updateUserProfile(data.name, data.photo)
-                    const saveUser = { name: data.name, email: data.email }
+                    
                     .then(() => {
+                        const saveUser = { name: data.name, email: data.email }
                         fetch('http://localhost:5000/users',{
                             method: 'POST',
                             headers: {
@@ -109,6 +111,7 @@ const SignUp = () => {
                                 <input className="btn text-white bg-teal-600 hover:bg-teal-900" type="submit" value="SignUp" />
                             </div>
                         </form>
+                        <SocialLogin></SocialLogin>
                         <p className="p-5">Already have an account<Link className="btn-link" to='/login'>LogIn</Link></p>
                     </div>
                 </div>
