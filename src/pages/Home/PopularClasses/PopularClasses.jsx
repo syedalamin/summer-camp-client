@@ -11,7 +11,7 @@ const PopularClasses = () => {
         <div>
             <div className="w-10/12 mx-auto my-10">
                 <h2 className="text-3xl font-bold text-center my-5">Meet Our Teacher</h2>
-                <div className="grid sm:grid-cols-3 gap-20 text-center">
+                <div className="grid sm:grid-cols-3 gap-20 ">
                     {
                         sixClasses.map(item => <ClassesCard
                             key={item._id}
