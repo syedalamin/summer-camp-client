@@ -6,12 +6,12 @@ import useInstructor from "../hooks/useinstructor";
 
 const Dashboard = () => {
     const [cart] = useCart();
-    
-    
+
+
     // admin todo:
     // const isAdmin = true;
     // const isInstructor = false;
-    
+
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
 
