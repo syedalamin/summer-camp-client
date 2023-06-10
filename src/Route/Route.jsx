@@ -8,6 +8,9 @@ import Dashboard from '../Layout/Dashboard';
 import MyCart from '../pages/Dashboard/MyCart/MyCart';
 import Classes from '../pages/Classes/Classes';
 import PrivateRoute from './PrivateRoute';
+import ManageUsers from '../pages/Dashboard/Admin/ManageUsers/ManageUsers';
+import ManageClasses from '../pages/Dashboard/Admin/ManageClasses/ManageClasses';
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +45,14 @@ export const router = createBrowserRouter([
       {
         path: 'mycart',
         element: <MyCart></MyCart>
+      },
+      {
+        path: 'manageusers',
+        element: <ManageUsers></ManageUsers>
+      },
+      {
+        path: 'manageclasses',
+        element: <ManageClasses></ManageClasses>
       }
     ]
   }
