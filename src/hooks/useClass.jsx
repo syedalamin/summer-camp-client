@@ -6,21 +6,14 @@ const useClass = () => {
     const [loading, setLoading] = useState(true);
     const [axiosSecure] = useAxiosSecure();
 
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/classes')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setClasses(data)
-    //             setLoading(false)
-    //         })
-    // }, []);
+
     useEffect(() => {
         axiosSecure.get('/classes')
             .then(data => {
                 setClasses(data.data)
                 setLoading(false)
             })
-    }, []);
+    }, [axiosSecure]);
 
     return [classes, loading];
 

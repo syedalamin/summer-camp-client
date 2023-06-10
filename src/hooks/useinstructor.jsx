@@ -17,4 +17,3 @@ const  useInstructor = () =>{
 
 export default useInstructor;
 
-// isInstructor

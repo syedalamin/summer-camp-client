@@ -40,6 +40,7 @@ const Dashboard = () => {
                                 <>
                                     <li><Link><FaUserCheck></FaUserCheck>My classes</Link></li>
                                     <li><Link><FaUserEdit></FaUserEdit>Add class</Link></li>
+                                    <li><NavLink to='/dashboard/mycart'><FaShoppingCart></FaShoppingCart>My selected <div className="badge bg-teal-600 text-white ">+{cart?.length || 0}</div> </NavLink></li>
                                 </>
                                 :
                                 <>
