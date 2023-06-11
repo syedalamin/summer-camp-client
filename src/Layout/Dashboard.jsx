@@ -38,8 +38,8 @@ const Dashboard = () => {
                             :
                             isInstructor ?
                                 <>
-                                    <li><Link><FaUserCheck></FaUserCheck>My classes</Link></li>
-                                    <li><Link><FaUserEdit></FaUserEdit>Add class</Link></li>
+                                    <li><Link to='/dashboard/myclasses'><FaUserCheck></FaUserCheck>My classes</Link></li>
+                                    <li><Link to='/dashboard/addclass'><FaUserEdit></FaUserEdit>Add class</Link></li>
                                     <li><NavLink to='/dashboard/mycart'><FaShoppingCart></FaShoppingCart>My selected <div className="badge bg-teal-600 text-white ">+{cart?.length || 0}</div> </NavLink></li>
                                 </>
                                 :
