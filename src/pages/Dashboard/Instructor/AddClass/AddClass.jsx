@@ -1,9 +1,59 @@
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import useAuth from '../../../../hooks/useAuth';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
+
+const ima_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
+
 
 const AddClass = () => {
+    const {user} = useAuth();
+    const [axiosSecure] = useAxiosSecure();
+    const { register, handleSubmit, reset,  formState: { errors } } = useForm();
 
-    const { register, handleSubmit,  formState: { errors } } = useForm();
-  const onsubmit = data => console.log(data);
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${ima_hosting_token}`;
+
+
+
+    const onsubmit = data => {
+
+        const formData = new FormData();
+        formData.append('image', data.image[0])
+
+        fetch(img_hosting_url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgResponse => {
+                if (imgResponse.success) {
+                    const imgURL = imgResponse.data.display_url;
+                    const {name, availableSeats, price,}= data;
+                    const NewClass = {instructor_name: user?.displayName, email: user?.email , name, availableSeats: parseFloat(availableSeats), price: parseFloat(price), image:imgURL}
+            
+                    console.log(NewClass)
+
+                    axiosSecure.post('/classes', NewClass)
+                    .then(data =>{
+                        console.log('after posting new class', data.data)
+                        if(data.data.insertedId){
+                            reset()
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Your work has been saved',
+                                showConfirmButton: false,
+                                timer: 1500
+                              }) 
+                        }
+                    })
+
+
+                }
+            })
+    };
+
+
 
 
     return (
@@ -16,14 +66,14 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text">Instructor Name</span>
                         </label>
-                        <input type="text" placeholder="Type here"  {...register("instructor", { required: true })}  className="input input-bordered w-full max-w-xs" />
+                        <input type="text" placeholder="Type here" defaultValue={user?.displayName}   {...register("instructor_name", { required: true })} className="input input-bordered w-full max-w-xs" />
                         {errors.instructor && <span className='text-red-600'>This field is required</span>}
                     </div>
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Instructor Email</span>
                         </label>
-                        <input type="email" placeholder="Type here"  {...register("email", { required: true })} className="input input-bordered w-full max-w-xs" />
+                        <input type="email" placeholder="Type here" defaultValue={user?.email} {...register("email", { required: true })} className="input input-bordered w-full max-w-xs" />
                         {errors.email && <span className='text-red-600'>This field is required</span>}
                     </div>
 
@@ -54,7 +104,7 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text">Class Image</span>
                         </label>
-                        <input type="file" {...register("classImage", { required: true })} className="file-input  file-input-bordered w-full max-w-xs" />
+                        <input type="file" {...register("image", { required: true })} className="file-input  file-input-bordered w-full max-w-xs" />
                         {errors.classImage && <span className='text-red-600'>This field is required</span>}
                     </div>
                 </div>
