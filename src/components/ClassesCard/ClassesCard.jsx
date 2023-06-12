@@ -57,14 +57,14 @@ const ClassesCard = ({ item }) => {
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
-                    <figure>
-                        <img className="w-full h-50" src={image} alt="Shoes" />
+                    <figure >
+                        <img className="w-full h-50" style={{height: '300px'}}  src={image} alt="Shoes" />
                     </figure>
                     <p className="bg-teal-800 font-bold rounded-md text-white top-0 right-0 px-7 py-2  absolute">${price}</p>
                 <div className="card-body">
 
                     <h2 className="card-title justify-center">{name}</h2>
-                    <p>Available Seats: {availableSeats}</p>
+                    <p className="text-center">Available Seats: {availableSeats}</p>
                     <div onClick={()=>handleAddToCart(item)} className="card-actions justify-center">
                         <button className="btn bg-teal-600 hover:bg-teal-800">Add To Cart</button>
                     </div>
