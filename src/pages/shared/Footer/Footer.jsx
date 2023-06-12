@@ -1,9 +1,10 @@
-
+import logo from '../../../assets/logo/logo.png'
 const Footer = () => {
     return (
         <div>
             <footer className="footer p-10 bg-base-200 text-base-content">
   <div>
+    <img style={{width: '100px'}} src={logo} alt="" />
     <p>ACME Industries Ltd.<br/>Providing reliable tech since 1992</p>
   </div> 
   <div>

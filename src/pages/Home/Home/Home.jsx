@@ -9,6 +9,7 @@ import slider_1 from '../../../assets/SwiperSlide/slider-banner-1.png'
 import slider_2 from '../../../assets/SwiperSlide/slider-banner-2.png'
 import SomeInstructors from "../SomeInstructors/SomeInstructors";
 import PopularClasses from "../PopularClasses/PopularClasses";
+import SomeText from "../SomeText/SomeText";
 
 
 const Home = () => {
@@ -39,6 +40,7 @@ const Home = () => {
         </div>
         <SomeInstructors></SomeInstructors>
         <PopularClasses></PopularClasses>
+        <SomeText></SomeText>
         </>
 
     );
