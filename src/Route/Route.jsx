@@ -15,11 +15,13 @@ import AddClass from '../pages/Dashboard/Instructor/AddClass/AddClass';
 import InstructorRoute from './InstructorRoute';
 import MyClass from '../pages/Dashboard/Instructor/MyClass/MyClass';
 import Payment from '../pages/Dashboard/Payment/Payment';
+import Error from '../pages/shared/error';
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error> ,
     children: [
       {
         path: '/',
