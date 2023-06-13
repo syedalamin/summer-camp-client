@@ -55,7 +55,7 @@ const ClassesCard = ({ item }) => {
         }
     }
     return (
-        <div className="py-20">
+        <div className="">
             <div className="card w-96 bg-base-100 shadow-xl">
                     <figure >
                         <img className="w-full h-50" style={{height: '300px'}}  src={image} alt="Shoes" />

@@ -9,7 +9,7 @@ const Classes = () => {
             <Helmet>
                 <title>SA Camp | Al Class </title>
             </Helmet>
-            <div className="grid sm:grid-cols-3 gap-20 w-10/12 mx-auto ">
+            <div className="grid sm:grid-cols-3 gap-10 w-10/12 mx-auto ">
                 {
                     classes.map(item => <ClassesCard
                         key={item._id}
