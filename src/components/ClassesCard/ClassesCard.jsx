@@ -6,7 +6,7 @@ import useCart from "../../hooks/useCart";
 
 const ClassesCard = ({ item }) => {
 
-    const { image, name, availableSeats, price, _id } = item;
+    const { image, name, availableSeats, price, _id , instructor_name } = item;
     const {user} = useContext(AuthContext);
     const [, refetch ] = useCart();
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ const ClassesCard = ({ item }) => {
     const handleAddToCart = ()=>{
         if(user && user.email){
             const cartItem ={cartId : _id,  image, name, availableSeats, price, email: user.email}
-            fetch('https://sa-summer-camp-server.vercel.app/carts', {
+            fetch('http://localhost:5000/carts', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -55,18 +55,18 @@ const ClassesCard = ({ item }) => {
         }
     }
     return (
-        <div>
+        <div className="py-20">
             <div className="card w-96 bg-base-100 shadow-xl">
                     <figure >
                         <img className="w-full h-50" style={{height: '300px'}}  src={image} alt="Shoes" />
                     </figure>
                     <p className="bg-teal-800 font-bold rounded-md text-white top-0 right-0 px-7 py-2  absolute">${price}</p>
                 <div className="card-body">
-
-                    <h2 className="card-title justify-center">{name}</h2>
-                    <p className="text-center">Available Seats: {availableSeats}</p>
-                    <div onClick={()=>handleAddToCart(item)} className="card-actions justify-center">
-                        <button className="btn bg-teal-600 hover:bg-teal-800">Add To Cart</button>
+                    <h2 className="card-title font-bold">{name}</h2>
+                    <h2 className="text-xl">Instructor name:<span className="font-bold"> {instructor_name}</span></h2>
+                    <p className="">Available Seats: <span className="font-bold">{availableSeats}</span> </p>
+                    <div onClick={()=>handleAddToCart(item)} className="card-actions ">
+                        <button className="btn bg-teal-600 hover:bg-teal-800 btn-sm text-white">Select</button>
                     </div>
                 </div>
             </div>

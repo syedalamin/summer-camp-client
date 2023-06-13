@@ -15,6 +15,8 @@ const Checkout = ({ price, cart }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
 
+
+
     useEffect(() => {
         if(price > 0){
             axiosSecure.post('/create-payment-intent', { price })
@@ -71,6 +73,7 @@ const Checkout = ({ price, cart }) => {
         }
         console.log(paymentIntent)
         setProcessing(false)
+        
 
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id)
@@ -91,6 +94,7 @@ const Checkout = ({ price, cart }) => {
             .then(res => {
                 console.log(res.data);
                 if(res.data.result.insertedId){
+          
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
@@ -106,7 +110,7 @@ const Checkout = ({ price, cart }) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form  onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
